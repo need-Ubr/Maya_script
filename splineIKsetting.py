@@ -31,6 +31,7 @@ def splineIKsetting(partname):
     
     pointOnCrvInfo = []
     sumLength = 0
+    pointLoc = []
     for num in range(0, len(seljnt)):
         POCnode = pm.createNode("pointOnCurveInfo", name="%s_pointOnCurveInfo%s"%(partname, str(1 + num)))
         pointOnCrvInfo.append(POCnode)
@@ -41,10 +42,7 @@ def splineIKsetting(partname):
         POCnode.turnOnPercentage.set(1)
         ikCrv.worldSpace >> POCnode.inputCurve
         print("%s.worldSpace >> %s.inputCurve" % (ikCrv, POCnode))
-    
-    
-    pointLoc = []
-    for num in range(0,len(pointOnCrvInfo)):
+        
         loc = pm.spaceLocator(name="%s_distanceLoc%s"%(partname, str(1 + num)))
         pm.parent(loc, DistanceGrp)
         pointLoc.append(loc)
