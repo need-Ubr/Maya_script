@@ -109,4 +109,4 @@ def splineIKsetting(partname):
         print("%s.output.outputX >> %s.scaleX" % (md, jnt))
     
     
-splineIKsetting('SkirtH')
+splineIKsetting('spine')
